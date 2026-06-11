@@ -43,3 +43,17 @@ SELECT
 FROM students s
 LEFT JOIN attendance a ON s.student_id = a.student_id
 GROUP BY s.student_id;
+
+--  Exam Performance Analysis 
+-- Calculates the average marks obtained by each student across exams
+SELECT 
+    s.student_number,
+    s.names AS student_name,
+    c.class_name,
+    COUNT(er.result_id) AS exams_taken,
+    ROUND(AVG(er.marks_obtained), 1) AS average_score
+FROM students s
+JOIN classes c ON s.class_id = c.class_id
+LEFT JOIN exam_results er ON s.student_id = er.student_id
+GROUP BY s.student_id
+ORDER BY average_score DESC;
