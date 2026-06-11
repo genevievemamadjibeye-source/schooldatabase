@@ -1,8 +1,3 @@
--- ==========================================
--- 01_SCHEMA.SQL
--- Creates the 18 relational database tables
--- ==========================================
-
 -- Core Student Tables Module
 CREATE TABLE IF NOT EXISTS terms (
     term_id INT AUTO_INCREMENT PRIMARY KEY,
